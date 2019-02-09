@@ -36,6 +36,10 @@ public class Print {
             //SearchVarTyp(s);
             String VarName = " "+s;
             int pos = getPosition(VarName);
+            if(pos<0){
+                System.out.println("Variable not Found!!! please dclare the variable first---");
+                return;
+            }
             // System.out.println("Variable Name:" + s + "  Position: " + pos);
             getVarType(pos);
         }
@@ -157,11 +161,6 @@ public class Print {
             addit = addit+(char)tmp;
         }
 
-
-
-
-
-
         int pos = addit.indexOf(VarName);
 
 
@@ -169,6 +168,7 @@ public class Print {
     }
 
     public void PrintArrayList(){
+
         System.out.println(arraylistOfVarType.toString());
     }
 
