@@ -2,6 +2,7 @@ package com.bashir;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
@@ -9,6 +10,8 @@ import static java.lang.System.setOut;
 
 public class TextManipulate {
     public static void main(String[] args) throws Exception {
+
+        ArrayList<Var> arrayListOfVar = new ArrayList<Var>();
 
         Scanner input = new Scanner(System.in);
         String cmd;
@@ -40,11 +43,33 @@ public class TextManipulate {
                 System.out.println("-----Enter var Type----");
                 String type = input.nextLine();
                 c.addVar(var, type);
+
+                Var variable = new Var();
+                variable.setVarName(var);
+                variable.setVarType(type);
+                arrayListOfVar.add(variable);
+
+
             }
 
             else if(cmd.equals("assignVar"))
             {
                 System.out.println("----Enter var name-----");
+                String var = input.nextLine();
+                Var var1 = new Var();
+                boolean mark = false;
+                for(int i =0;i<arrayListOfVar.size();i++){
+                    var1 = arrayListOfVar.get(i);
+                    if(var.equals(var1.VarName)){
+                        System.out.println("-----Enter the value----- ");
+                        String value = input.nextLine();
+                        c.assignVar(var, value);
+                        var1.setValue(value);
+                        mark = true;
+                    }
+                }
+                if(mark == false) System.out.println("Variable" + var + "is not declared yet!!!");
+                /*System.out.println("----Enter var name-----");
                 String var = input.nextLine();
 
                 SearchVar searchVar = new SearchVar();
@@ -55,7 +80,7 @@ public class TextManipulate {
                     String type = input.nextLine();
                     c.assignVar(var, type);
                 }
-                else System.out.println("Variable" + var + "is not declared yet!!!");
+                else System.out.println("Variable" + var + "is not declared yet!!!");*/
                 /*System.out.println("-----Enter the value----- ");
                 String type = input.nextLine();
                 c.assignVar(var, type);*/
