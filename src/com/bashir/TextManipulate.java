@@ -90,15 +90,12 @@ public class TextManipulate {
             {
                 System.out.println("----Enter Operation----");
                 String op = input.nextLine();
-
                 c.addOp(op);
             }
             else if(cmd.equals("stop")) exit(0);
             else System.out.println("Wrong command!!!");
             System.out.println("----Enter Your command----\n");
         }
-
-
 
 
     }

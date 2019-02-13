@@ -24,4 +24,7 @@ public class Var {
     public void setValue(String value){
         this.Value = value;
     }
+    public String toString() {
+        return "   " + VarName + "         " + VarType + "\t   " + Value + "\n";
+    }
 }
