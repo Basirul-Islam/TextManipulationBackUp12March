@@ -90,9 +90,17 @@ public class TextManipulate {
             {
                 System.out.println("----Enter Operation----");
                 String op = input.nextLine();
-                c.addOp(op);
+                OpCmd operation = new OpCmd();
+                boolean x = operation.filter(op);
+                if(x==true) c.addOp(op);
             }
-            else if(cmd.equals("stop")) exit(0);
+            else if(cmd.equals("stop")){
+
+                for(Var v: arrayListOfVar)
+                    System.out.println(v);
+
+                exit(0);
+            }
             else System.out.println("Wrong command!!!");
             System.out.println("----Enter Your command----\n");
         }
