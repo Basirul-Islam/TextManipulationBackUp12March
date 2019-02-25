@@ -1,0 +1,51 @@
+.textarea{
+    -fx-font-color: red;
+    -fx-text-inner-color:red;
+    -fx-opacity: 0.25;
+}
+
+.textarea:hover {
+    -fx-font-color: red;
+    -fx-text-inner-color:red;
+    -fx-opacity: 1;
+}
+
+.start{
+    -fx-background-color: white;
+    -fx-opacity: 0.25;
+}
+
+.start:hover {
+    -fx-background-color: white;
+    -fx-opacity: 1;
+}
+
+.varType{
+     -fx-background-color: white;
+     -fx-opacity: 0.25;
+     -fx-font-size: 19px;
+     -fx-font-family: "Consolas";
+
+}
+
+.varType:hover{
+     -fx-background-color: white;
+     -fx-opacity: 1;
+     -fx-font-size: 19px;
+     -fx-font-family: "Consolas";
+
+}
+
+.textFieldvarType{
+      -fx-background-color: white;
+     -fx-opacity: 0.25;
+     -fx-font-size: 19px;
+     -fx-font-family: "Consolas";
+}
+
+.textFieldvarType:hover {
+      -fx-background-color: white;
+     -fx-opacity: 1;
+     -fx-font-size: 19px;
+     -fx-font-family: "Consolas";
+}
