@@ -17,6 +17,8 @@ public class FilterOp {
     ArrayList<String> arrayListOfOp = new ArrayList<String>();
     ArrayList<String> arrayListOfConstant = new ArrayList<String>();
 
+
+
     public FilterOp(){
 
     }
@@ -136,7 +138,8 @@ public class FilterOp {
                 //if(j>=arrayListOfOp.size() || i>= arrayListOfOperator.size()) return;
 
                 if(arrayListOfOperator.get(i)!=arrayListOfOp.get(j)){
-                    System.out.println("vugichugi operation chalaibar aiso?? faizlami paiso??Operator Missing!!!");
+                    System.out.println("invalid operation!!!operator missing....");
+                    //System.out.println("vugichugi operation chalaibar aiso?? faizlami paiso??Operator Missing!!!");
                     /*System.out.println(" i  " + i + "  j  " + j);
                     System.out.println(arrayListOfOperator.get(i));
                     System.out.println(arrayListOfOp.get(j));*/
@@ -154,7 +157,7 @@ public class FilterOp {
                 x = true;
             }
             else{
-                System.out.println("vugichugi operation chalaibar aiso?? faizlami paiso??");
+                System.out.println("invalid operation!!!");
                 return;
             }
 
@@ -163,7 +166,7 @@ public class FilterOp {
 
         else{
             //System.out.println(arrayListOfOp.get(1));
-            System.out.println("vugichugi operation chalaibar aiso?? faizlami paiso?? \"=\" sign missing!!!");
+            System.out.println("invalid operation!!!\"=\" sign missing!!!");
             return;
         }
 
@@ -187,7 +190,7 @@ public class FilterOp {
             }
             if(stringToCharArray[i] == ')'){
                 if(st.empty()) {
-                    System.out.println("vugichugi operation chalaibar aiso?faizlami paiso?!!!  \" opening or closing Bracket missing!! \" ");
+                    System.out.println("invalid operation!!! \" opening or closing Bracket missing!! \" ");
                     return x;
                 }
                 else
@@ -201,11 +204,15 @@ public class FilterOp {
             msg = operation;
             filter();
         }
-        else System.out.println("vugichugi operation chalaibar aiso?? faizlami paiso??");
+        else System.out.println("invalid operation!!!");
 
         /*System.out.println(st.toString());*/
         //System.out.println("modified op: " + operation);
         return x;
+    }
+    //newly added
+    public ArrayList getArrayListOfVarName(){
+        return arraylistOfVarName;
     }
 
 }

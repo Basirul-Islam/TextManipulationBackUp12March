@@ -1,8 +1,18 @@
 package com.bashir;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class OpCmd {
+
+
+    public ArrayList<Var> arrayListOfVariable = new ArrayList<Var>();
+    public ArrayList<String> arrayListOfVarName = new ArrayList<String>();
+
+    public OpCmd(ArrayList<Var> arrayListOfVariable){
+        this.arrayListOfVariable = arrayListOfVariable;
+    }
+
 
     public OpCmd(){
 
@@ -80,7 +90,18 @@ public class OpCmd {
         }
         FilterOp op = new FilterOp();
         boolean x = op.brucketMatching(OpCmd);
-        System.out.println(x);
+        //System.out.println(x);
+        //newly added
+        arrayListOfVarName = op.getArrayListOfVarName();
+        print();
+        CheckVar checkVar = new CheckVar(arrayListOfVariable,arrayListOfVarName);
+        checkVar.checkDeclaration();
         return x;
+    }
+    public void print(){
+        for(Var v: arrayListOfVariable)
+            System.out.println(v);
+        for(String s: arrayListOfVarName)
+            System.out.println(s);
     }
 }
