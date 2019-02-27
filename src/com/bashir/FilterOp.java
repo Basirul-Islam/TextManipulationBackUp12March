@@ -125,9 +125,17 @@ public class FilterOp {
         validityCheck();
     }
     public void validityCheck() throws IndexOutOfBoundsException {
+
+        String x1 = arrayListOfOp.get(0);
+        String x2 = arraylistOfVarName.get(0);
+        if(x1!=x2){
+            System.out.println("something went wrong!!!variable mismatch!!!");
+            return;
+        }
         int j =0;
         String s1 = "=";
         String s2 = arrayListOfOp.get(1);
+
         /*System.out.println("arrayListOfOp.get(1)-----> " + arrayListOfOp.get(1));
         System.out.println("arrayListOfOperator.get(1)------>" + arrayListOfOperator.get(1));*/
         if(s1.equals(s2)){
@@ -212,6 +220,7 @@ public class FilterOp {
     }
     //newly added
     public ArrayList getArrayListOfVarName(){
+
         return arraylistOfVarName;
     }
 

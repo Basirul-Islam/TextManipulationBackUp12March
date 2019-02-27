@@ -64,12 +64,17 @@ public class CheckVar {
        checkType();
     }
     public boolean checkType(){
+
+        if(arrayListOfVariableInOP.size()==1){
+            return true;
+        }
+
         String type = null;
 
         type = arrayListOfVariableInOP.get(0).VarType;
         for(int i = 1; i<arrayListOfVariableInOP.size();i++){
             if(type.equals(arrayListOfVariableInOP.get(i).VarType)){
-                System.out.println("type: " + type + "  "+arrayListOfVariableInOP.get(i).VarName +"              " + arrayListOfVariableInOP.get(i).VarType);
+                //System.out.println("type: " + type + "  "+arrayListOfVariableInOP.get(i).VarName +"              " + arrayListOfVariableInOP.get(i).VarType);
                 x = true;
             }
             else x= false;
@@ -77,11 +82,12 @@ public class CheckVar {
         }
         if(x == true){
             System.out.println("everything is okk");
-            print();
+            //print();
             return x;
         }
         else {
             System.out.println("type missMatch!!!");
+            //print();
             return x;
         }
     }

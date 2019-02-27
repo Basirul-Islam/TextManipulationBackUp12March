@@ -40,8 +40,8 @@ public class TextManipulate {
             {
                 System.out.println("----Enter var name----");
                 String var = input.nextLine();
-                ValidityOfVar v = new ValidityOfVar(var);
-                boolean x = v.validity();
+                ValidityOfVar v = new ValidityOfVar(arrayListOfVar);
+                boolean x = v.validity(var);
                 if(x==true){
                     System.out.println("-----Enter var Type----");
                     String type = input.nextLine();
@@ -75,21 +75,7 @@ public class TextManipulate {
                     }
                 }
                 if(mark == false) System.out.println("Variable " + var + " is not declared yet!!!");
-                /*System.out.println("----Enter var name-----");
-                String var = input.nextLine();
 
-                SearchVar searchVar = new SearchVar();
-                int pos;
-                pos = searchVar.getPosition(var);
-                if(pos>=0){
-                    System.out.println("-----Enter the value----- ");
-                    String type = input.nextLine();
-                    c.assignVar(var, type);
-                }
-                else System.out.println("Variable" + var + "is not declared yet!!!");*/
-                /*System.out.println("-----Enter the value----- ");
-                String type = input.nextLine();
-                c.assignVar(var, type);*/
             }
 
             else if(cmd.equals("addOp"))
@@ -102,8 +88,9 @@ public class TextManipulate {
             }
             else if(cmd.equals("stop")){
 
-                for(Var v: arrayListOfVar)
-                    System.out.println(v);
+                //this part is for printing an object type arrayList
+                /*for(Var v: arrayListOfVar)
+                    System.out.println(v);*/
 
                 exit(0);
             }

@@ -1,78 +1,120 @@
 package com.bashir;
 
 import java.io.*;
-
+import java.util.ArrayList;
 
 public class ValidityOfVar {
 
-        FileOutputStream fout=null;
-        FileInputStream fin = null;
+    FileOutputStream fout=null;
+    FileInputStream fin = null;
 
-        String VariableName ;
-        public ValidityOfVar(){
+    ArrayList<String> Keyes = new ArrayList<String>();
+    ArrayList<String> vartype = new ArrayList<String>();
+    ArrayList<Var>arrayListOfVar = new ArrayList<Var>();
 
+    public ValidityOfVar(ArrayList<Var>arrayListOfVar){
+        this.arrayListOfVar = arrayListOfVar;
+    }
+
+    /*public ValidityOfVar(String VarName){
+        this.VariableName = VarName;
+    }*/
+
+    public boolean validity(String variableName) throws IOException {
+        int tmp;
+        String addit = "";
+
+        fin = new FileInputStream(new File("Key.txt"));
+
+        while(fin.available()!=0)
+        {
+            tmp = fin.read();
+            addit = addit+(char)tmp;
         }
+        char[] stringToCharArray = addit.toCharArray();
+        String key = "";
+        for (int i =0; i<=addit.length();i++){
+            if(i == addit.length()){
+                if(key!=null) {
+                    Keyes.add(key);
+                    key = "";
+                    break;
+                }
+                break;
+            }
+            if(stringToCharArray[i]==' '){
+                if(key!=null) {
+                    Keyes.add(key);
+                    key = "";
+                }
 
-        public ValidityOfVar(String VarName){
-            this.VariableName = VarName;
+            }
+            else key = key + stringToCharArray[i];
         }
-
-        public boolean validity() throws IOException {
-            int tmp;
-            String addit = "";
-            String VarName = " " + VariableName;
-
-            boolean mark = false;
-
-            if(VariableName.contains(" ")){
-                System.out.println("variable Name cannot contain space!!! Invalid Variable!!!!");
-                mark = false;
-                return false;
-            }
-
-            fin = new FileInputStream(new File("Key.txt"));
-
-            while(fin.available()!=0)
-            {
-                tmp = fin.read();
-                addit = addit+(char)tmp;
-            }
-
-            int pos = addit.indexOf(VarName);
-            if(addit.contains(VarName)){
-                System.out.println("invalid Variable Name!!!This is a keyWord/Operator in c/c++ language!!!");
-                mark = false;
-                return false;
-            }
-            else {
-                System.out.println("-----valid Variable name---");
-                mark = true;
-                return true;
-            }
-
+        //System.out.println(Keyes);
+        if(variableName.contains(" ")){
+            System.out.println("variable Name cannot contain space!!! Invalid Variable!!!!");
+            return false;
         }
-        public boolean Vartype(String type) throws IOException {
-            int tmp;
-            String addit = "";
-            String VarType = " " + type;
-
-            boolean mark = false;
-            fin = new FileInputStream(new File("VarType.txt"));
-
-            while(fin.available()!=0)
-            {
-                tmp = fin.read();
-                addit = addit+(char)tmp;
-            }
-            if(addit.contains(VarType)){
-                return true;
-
-            }
-            else {
-                System.out.println("Invalid variable Type!!!!");
-                return false;
-            }
+        if(Keyes.contains(variableName)){
+            System.out.println("Invalid Variable Name!!! This is a keyWord/operator in c/c++ language!!!");
+            return false;
         }
+        else {
+            //System.out.println("-----valid var name---");
+             Var var1 = new Var();
+             for(int i =0;i<arrayListOfVar.size();i++){
+                var1 = arrayListOfVar.get(i);
+                if(variableName.equals(var1.VarName)){
+                    System.out.println("variable name already exist!!!!");
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+    public boolean Vartype(String VariableType) throws IOException {
+        int tmp;
+        String addit = "";
+
+        fin = new FileInputStream(new File("type.txt"));
+
+        while(fin.available()!=0)
+        {
+            tmp = fin.read();
+            addit = addit+(char)tmp;
+        }
+        char[] stringToCharArray = addit.toCharArray();
+
+        String type = "";
+        for (int i =0; i<=addit.length();i++){
+            if(i == addit.length()){
+                if(type!=null) {
+                    vartype.add(type);
+                    type = "";
+                    break;
+                }
+                break;
+            }
+            if(stringToCharArray[i]==' '){
+                if(type!=null) {
+                    vartype.add(type);
+                    type = "";
+                }
+
+            }
+            else type = type + stringToCharArray[i];
+        }
+        if(vartype.contains(VariableType)){
+            //System.out.println("----valid variable type------");
+            return true;
+        }
+        else {
+            System.out.println("Invalid variable type!!!");
+            return false;
+        }
+    }
 }
 
 

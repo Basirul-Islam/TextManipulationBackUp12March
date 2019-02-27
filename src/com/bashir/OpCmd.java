@@ -10,6 +10,7 @@ public class OpCmd {
     public ArrayList<String> arrayListOfVarName = new ArrayList<String>();
 
     public OpCmd(ArrayList<Var> arrayListOfVariable){
+
         this.arrayListOfVariable = arrayListOfVariable;
     }
 
@@ -93,7 +94,7 @@ public class OpCmd {
         //System.out.println(x);
         //newly added
         arrayListOfVarName = op.getArrayListOfVarName();
-        print();
+       // print();
         CheckVar checkVar = new CheckVar(arrayListOfVariable,arrayListOfVarName);
         checkVar.checkDeclaration();
         return x;
