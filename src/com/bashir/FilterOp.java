@@ -134,7 +134,14 @@ public class FilterOp {
         }
         int j =0;
         String s1 = "=";
-        String s2 = arrayListOfOp.get(1);
+        String s2 = null;
+        try{
+            s2 = arrayListOfOp.get(1);
+        }
+        catch (Exception e){
+            System.out.println("\" = \" sign missing!!!");
+            return;
+        }
 
         /*System.out.println("arrayListOfOp.get(1)-----> " + arrayListOfOp.get(1));
         System.out.println("arrayListOfOperator.get(1)------>" + arrayListOfOperator.get(1));*/
