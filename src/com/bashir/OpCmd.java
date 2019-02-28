@@ -95,8 +95,12 @@ public class OpCmd {
         //newly added
         arrayListOfVarName = op.getArrayListOfVarName();
        // print();
-        CheckVar checkVar = new CheckVar(arrayListOfVariable,arrayListOfVarName);
-        checkVar.checkDeclaration();
+        if(x == true){
+            CheckVar checkVar = new CheckVar(arrayListOfVariable,arrayListOfVarName);
+            boolean y = checkVar.checkDeclaration();
+            return y;
+        }
+
         return x;
     }
     public void print(){

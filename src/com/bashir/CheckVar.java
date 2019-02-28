@@ -22,18 +22,18 @@ public class CheckVar {
 
         this.arrayListOfVarName = arrayListOfVarName;
     }
-    public void checkDeclaration(){
+    public boolean checkDeclaration(){
         String s = null;
         Var var ;
         String name = null;
         boolean marker = false;
         if(arrayListOfVarName.isEmpty()){
             System.out.println("No variable found!!!");
-            return;
+            return false;
         }
         if(arrayListOfVariable.isEmpty()){
             System.out.println("No variable Declared!!!");
-            return;
+            return false;
         }
         for(int i=0;i<arrayListOfVarName.size();i++){
             s = arrayListOfVarName.get(i);
@@ -50,18 +50,23 @@ public class CheckVar {
         }
         if (marker == false){
             System.out.println("Variable not declared yet!!!");
-            return;
+            return false;
         }
-        else checkAssigVar();
+        else {
+            boolean x;
+            x = checkAssigVar();
+            return x;
+        }
     }
-    public void checkAssigVar(){
+    public boolean checkAssigVar(){
        for(int i = 1; i<arrayListOfVariableInOP.size();i++){
            if(arrayListOfVariableInOP.get(i).Value == null){
                System.out.println("Variable is not assigned yet!!!");
-               return;
+               return false;
            }
        }
-       checkType();
+       boolean x = checkType();
+       return x;
     }
     public boolean checkType(){
 
