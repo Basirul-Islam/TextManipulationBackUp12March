@@ -1,5 +1,7 @@
 package com.bashir;
 
+import ui.editorController;
+
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.Stack;
@@ -129,7 +131,8 @@ public class FilterOp {
         String x1 = arrayListOfOp.get(0);
         String x2 = arraylistOfVarName.get(0);
         if(x1!=x2){
-            System.out.println("something went wrong!!!variable mismatch!!!");
+            //System.out.println("something went wrong!!!variable mismatch!!!");
+            editorController.error = "something went wrong!!!variable mismatch!!!";
             return;
         }
         int j =0;
@@ -139,7 +142,8 @@ public class FilterOp {
             s2 = arrayListOfOp.get(1);
         }
         catch (Exception e){
-            System.out.println("\" = \" sign missing!!!");
+           // System.out.println("\" = \" sign missing!!!");
+            editorController.error = "Invalid Operation!!!";
             return;
         }
 
@@ -153,7 +157,8 @@ public class FilterOp {
                 //if(j>=arrayListOfOp.size() || i>= arrayListOfOperator.size()) return;
 
                 if(arrayListOfOperator.get(i)!=arrayListOfOp.get(j)){
-                    System.out.println("invalid operation!!!operator missing....");
+                    //System.out.println("invalid operation!!!operator missing....");
+                    editorController.error = "invalid operation!!!operator missing....";
                     //System.out.println("vugichugi operation chalaibar aiso?? faizlami paiso??Operator Missing!!!");
                     /*System.out.println(" i  " + i + "  j  " + j);
                     System.out.println(arrayListOfOperator.get(i));
@@ -168,11 +173,12 @@ public class FilterOp {
             String a1 = arrayListOfOperator.get(0);
             String a2 = arrayListOfOperator.get(arrayListOfOperator.size()-1);
             if((arrayListOfOp.get(0)!= a1) && (arrayListOfOp.get(arrayListOfOp.size()-1)!=a2)){
-                System.out.println("----valid operation---");
+                //System.out.println("----valid operation---");
                 x = true;
             }
             else{
-                System.out.println("invalid operation!!!");
+                //System.out.println("invalid operation!!!");
+                editorController.error = "invalid operation!!!";
                 return;
             }
 
@@ -181,7 +187,8 @@ public class FilterOp {
 
         else{
             //System.out.println(arrayListOfOp.get(1));
-            System.out.println("invalid operation!!!\"=\" sign missing!!!");
+            //System.out.println("invalid operation!!!\"=\" sign missing!!!");
+            editorController.error = "invalid operation!!!\"=\" sign missing!!!";
             return;
         }
 
@@ -205,7 +212,8 @@ public class FilterOp {
             }
             if(stringToCharArray[i] == ')'){
                 if(st.empty()) {
-                    System.out.println("invalid operation!!! \" opening or closing Bracket missing!! \" ");
+                    //System.out.println("invalid operation!!! \" opening or closing Bracket missing!! \" ");
+                    editorController.error = "invalid operation!!! \" opening or closing Bracket missing!! \" ";
                     return x;
                 }
                 else
@@ -219,8 +227,8 @@ public class FilterOp {
             msg = operation;
             filter();
         }
-        else System.out.println("invalid operation!!!");
-
+        else //System.out.println("invalid operation!!!");
+        editorController.error = "invalid operation!!!";
         /*System.out.println(st.toString());*/
         //System.out.println("modified op: " + operation);
         return x;

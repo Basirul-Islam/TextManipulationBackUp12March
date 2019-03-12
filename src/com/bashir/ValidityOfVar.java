@@ -1,5 +1,7 @@
 package com.bashir;
 
+import ui.editorController;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -53,11 +55,13 @@ public class ValidityOfVar {
         }
         //System.out.println(Keyes);
         if(variableName.contains(" ")){
-            System.out.println("variable Name cannot contain space!!! Invalid Variable!!!!");
+            //System.out.println("variable Name cannot contain space!!! Invalid Variable!!!!");
+            editorController.error = "variable Name cannot contain space!!! Invalid Variable!!!!";
             return false;
         }
         if(Keyes.contains(variableName)){
-            System.out.println("Invalid Variable Name!!! This is a keyWord/operator in c/c++ language!!!");
+            //System.out.println("Invalid Variable Name!!! This is a keyWord/operator in c/c++ language!!!");
+            editorController.error = "Invalid Variable Name!!! This is a keyWord/operator in c/c++ language!!!";
             return false;
         }
         else {
@@ -66,7 +70,8 @@ public class ValidityOfVar {
              for(int i =0;i<arrayListOfVar.size();i++){
                 var1 = arrayListOfVar.get(i);
                 if(variableName.equals(var1.VarName)){
-                    System.out.println("variable name already exist!!!!");
+                    //System.out.println("variable name already exist!!!!");
+                    editorController.error = "variable name already exist!!!!";
                     return false;
                 }
             }

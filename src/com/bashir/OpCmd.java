@@ -1,5 +1,7 @@
 package com.bashir;
 
+import ui.editorController;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -46,22 +48,24 @@ public class OpCmd {
 
     public boolean clBr(int pos,String OpCmd){
         boolean mark = false;
+        System.out.println(pos);
         char[] stringToCharArray = OpCmd.toCharArray();
-        pos++;
+        //pos++;
         while(pos<OpCmd.length()){
             pos++;
             if(pos>=OpCmd.length()){
                 mark = true;
                 break;
             }
-            if(stringToCharArray[pos] == ' ') pos++;
-            else if((stringToCharArray[pos] == '=' || stringToCharArray[pos] == '+' || stringToCharArray[pos] == '-' || stringToCharArray[pos] == '/' || stringToCharArray[pos] == '*')){
+            else if(stringToCharArray[pos] == ' ') pos++;
+            else if(stringToCharArray[pos] == '=' || stringToCharArray[pos] == '+' || stringToCharArray[pos] == '-' || stringToCharArray[pos] == '/' || stringToCharArray[pos] == '*'){
                 mark = true;
                 //System.out.println("---valid op-----");
                 break;
             }
             else {
                 mark = false;
+
                 //System.out.println("operator missing!!!!");
                 break;
             }
@@ -77,14 +81,16 @@ public class OpCmd {
             if(stringToCharArray[i] == '('){
                 mark1 = opBr(i,OpCmd);
                 if(mark1 == false){
-                    System.out.println("operator missing before bracket!!!");
+                   // System.out.println("operator missing before bracket!!!");
+                    editorController.error = "operator missing before bracket!!!";
                     return false;
                 };
             }
             else if(stringToCharArray[i] == ')'){
                 mark2 = clBr(i,OpCmd);
                 if (mark2 == false){
-                    System.out.println("operator missing after bracket!!!");
+                    //System.out.println("operator missing after bracket!!!");
+                    editorController.error = "operator missing after bracket!!!";
                     return false;
                 }
             }

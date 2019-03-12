@@ -1,5 +1,7 @@
 package com.bashir;
 
+import ui.editorController;
+
 import java.io.*;
 import java.util.ArrayList;
 
@@ -37,7 +39,8 @@ public class Print {
             String VarName = " "+s;
             int pos = getPosition(VarName);
             if(pos<0){
-                System.out.println("Variable not Found!!! please dclare the variable first---");
+                //System.out.println("Variable not Found!!! please dclare the variable first---");
+                editorController.error = "Variable not Found!!! please dclare the variable first---";
                 return;
             }
             // System.out.println("Variable Name:" + s + "  Position: " + pos);

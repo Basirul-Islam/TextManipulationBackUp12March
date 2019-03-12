@@ -1,5 +1,7 @@
 package com.bashir;
 
+import ui.editorController;
+
 import java.util.ArrayList;
 
 public class CheckVar {
@@ -28,11 +30,13 @@ public class CheckVar {
         String name = null;
         boolean marker = false;
         if(arrayListOfVarName.isEmpty()){
-            System.out.println("No variable found!!!");
+            //System.out.println("No variable found!!!");
+            editorController.error = "No variable found!!!";
             return false;
         }
         if(arrayListOfVariable.isEmpty()){
-            System.out.println("No variable Declared!!!");
+            //System.out.println("No variable Declared!!!");
+            editorController.error = "No variable Declared!!!";
             return false;
         }
         for(int i=0;i<arrayListOfVarName.size();i++){
@@ -49,7 +53,8 @@ public class CheckVar {
             }
         }
         if (marker == false){
-            System.out.println("Variable not declared yet!!!");
+            //System.out.println("Variable not declared yet!!!");
+            editorController.error = "Variable not declared yet!!!";
             return false;
         }
         else {
@@ -61,7 +66,8 @@ public class CheckVar {
     public boolean checkAssigVar(){
        for(int i = 1; i<arrayListOfVariableInOP.size();i++){
            if(arrayListOfVariableInOP.get(i).Value == null){
-               System.out.println("Variable is not assigned yet!!!");
+               //System.out.println("Variable is not assigned yet!!!");
+               editorController.error = "Variable is not assigned yet!!!";
                return false;
            }
        }
@@ -86,12 +92,13 @@ public class CheckVar {
 
         }
         if(x == true){
-            System.out.println("everything is okk");
+            //System.out.println("everything is okk");
             //print();
             return x;
         }
         else {
-            System.out.println("type missMatch!!!");
+            System.out.println("variable type missMatch!!!");
+            editorController.error = "variable type missMatch!!!";
             //print();
             return x;
         }
