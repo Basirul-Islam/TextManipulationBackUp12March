@@ -73,13 +73,13 @@
                   <ColorAdjust brightness="-0.04" contrast="1.0" hue="-0.06" saturation="0.04" />
                </effect>
             </ImageView>
-            <ImageView fx:id="ShowAssignRight" fitHeight="21.0" fitWidth="23.0" layoutX="432.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: DARKEN;">
+            <ImageView fx:id="ShowAssignWrong" fitHeight="21.0" fitWidth="23.0" layoutX="432.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: DARKEN;">
                <image>
                   <Image url="@../resource/icon/error.png" />
                </image>
             </ImageView>
             <Label fx:id="ValueError" layoutX="458.0" layoutY="189.0" prefHeight="36.0" prefWidth="214.0" text="This is a test error!" textFill="#df0606" />
-            <ImageView fx:id="ShowAssignWrong" fitHeight="36.0" fitWidth="42.0" layoutX="429.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: DARKEN;">
+            <ImageView fx:id="ShowAssignRight" fitHeight="36.0" fitWidth="42.0" layoutX="431.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: DARKEN;">
                <image>
                   <Image url="@../resource/icon/right.png" />
                </image>

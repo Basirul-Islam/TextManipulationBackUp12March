@@ -163,6 +163,11 @@ public class editorController implements Initializable {
 
 
         if(event.getCode() == KeyCode.ENTER) {
+
+            showVarNameRight.setVisible(false);
+            showvarNameWrong.setVisible(false);
+            varNameError.setVisible(false);
+
             String varTypeNme = varType.getSelectionModel().getSelectedItem();
             if(varTypeNme==null){
                 error = "Var type not declared Yet!!!";
@@ -248,7 +253,7 @@ public class editorController implements Initializable {
             if(e.getCode() == KeyCode.ENTER)
             {
                 print.setDisable(false);
-               mainOutput = mainOutput + "\"" + msgHolder.getText() + "\"" + "\n";
+                mainOutput = mainOutput + "\"" + msgHolder.getText() + "\"" + "\n";
 
                 try{
                     Print print = new Print();
@@ -301,6 +306,12 @@ public class editorController implements Initializable {
 
 
         if (event.getCode() == KeyCode.ENTER) {
+
+            ShowAssignRight.setVisible(false);
+            ShowAssignWrong.setVisible(false);
+            ValueError.setVisible(false);
+
+
             String varName = assign.getSelectionModel().getSelectedItem();
             if (varName == null) {
                 error = "Please insert a variable Name first";
@@ -356,6 +367,10 @@ public class editorController implements Initializable {
                                            c.assignVar(varName, value);
                                            mainOutput = mainOutput + varName + " = " + value + "\n";
                                            output.setText(mainOutput);
+
+                                           ShowAssignRight.setVisible(true);
+                                           ShowAssignWrong.setVisible(false);
+                                           ValueError.setVisible(false);
                                        } catch (Exception e) {
 
                                        }
@@ -400,6 +415,10 @@ public class editorController implements Initializable {
                             c.assignVar(varName, value);
                             mainOutput = mainOutput + varName + " = " + value + "\n";
                             output.setText(mainOutput);
+
+                            ShowAssignRight.setVisible(true);
+                            ShowAssignWrong.setVisible(false);
+                            ValueError.setVisible(false);
                         } catch (Exception e) {
 
                         }
