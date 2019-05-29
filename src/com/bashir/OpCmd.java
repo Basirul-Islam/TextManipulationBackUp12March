@@ -48,7 +48,7 @@ public class OpCmd {
 
     public boolean clBr(int pos,String OpCmd){
         boolean mark = false;
-        System.out.println(pos);
+
         char[] stringToCharArray = OpCmd.toCharArray();
         //pos++;
         while(pos<OpCmd.length()){

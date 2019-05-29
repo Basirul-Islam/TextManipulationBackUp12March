@@ -10,15 +10,16 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Stack;
 
 import static java.lang.System.exit;
+import static java.lang.System.setOut;
 
 public class editorController implements Initializable {
 
@@ -68,8 +69,16 @@ public class editorController implements Initializable {
     Label OpError;
     @FXML
     Button Stop;
-
-
+    @FXML
+    Button MakeLOOPButton;
+    @FXML
+    Button ExitFromLoop;
+    @FXML
+    AnchorPane AchorpaneForIeterationPopUp;
+    @FXML
+    Button OK;
+    @FXML
+    TextField NoOfIteration;
 
 
 
@@ -80,6 +89,9 @@ public class editorController implements Initializable {
     ArrayList<Var> arrayListOfVar = new ArrayList<Var>();
     public static String mainOutput = "";
     public static String error = "";
+
+    public static Stack s = new Stack();
+    public static String f = "";
     //public boolean state = true;
 
     @Override
@@ -102,6 +114,12 @@ public class editorController implements Initializable {
         OpRight.setVisible(false);
         OpWrong.setVisible(false);
         OpError.setVisible(false);
+        MakeLOOPButton.setDisable(true);
+        ExitFromLoop.setVisible(false);
+        AchorpaneForIeterationPopUp.setVisible(false);
+        NoOfIteration.setVisible(false);
+        OK.setVisible(false);
+
 
     }
 
@@ -125,6 +143,7 @@ public class editorController implements Initializable {
         //state = false;
         varType.setDisable(false);
         print.setDisable(false);
+        MakeLOOPButton.setDisable(false);
 
         //setDisable();
         Start.setDisable(true);
@@ -358,8 +377,11 @@ public class editorController implements Initializable {
                                         ShowAssignWrong.setVisible(true);
                                         ValueError.setVisible(true);
                                         ValueError.setText(error);
+
                                         error = "";
+
                                         return;
+
 
                                     }
                                     else {
@@ -367,6 +389,7 @@ public class editorController implements Initializable {
                                            c.assignVar(varName, value);
                                            mainOutput = mainOutput + varName + " = " + value + "\n";
                                            output.setText(mainOutput);
+                                           var1.setValue(value);
 
                                            ShowAssignRight.setVisible(true);
                                            ShowAssignWrong.setVisible(false);
@@ -486,6 +509,32 @@ public class editorController implements Initializable {
             }
 
         }
+    }
+    public void LoopMaker(ActionEvent event) throws Exception {
+        /*MakeLoop m = new MakeLoop();
+        String addit = m.FileWrite();*/
+        //System.out.println("addite: " + addit);
+
+        AchorpaneForIeterationPopUp.setVisible(true);
+        NoOfIteration.setVisible(true);
+        OK.setVisible(true);
+    }
+    public void getIterationNo(ActionEvent event) throws Exception {
+        String iteration = NoOfIteration.getText();
+        mainOutput = mainOutput + "Make repeated statement for " + iteration + " times\n[" + "\n";
+        output.setText(mainOutput);
+        MakeLoop m = new MakeLoop();
+        m.makeLoop("makeLoop",iteration);
+        AchorpaneForIeterationPopUp.setVisible(false);
+        ExitFromLoop.setVisible(true);
+
+    }
+    public void exitButtonAction(ActionEvent event) throws Exception {
+        MakeLoop m = new MakeLoop();
+        mainOutput = mainOutput + "\n]\n";
+        output.setText(mainOutput);
+        m.makeLoop("exit","0");
+        if(s.isEmpty()) ExitFromLoop.setVisible(false);
     }
     public void stop(ActionEvent event) {
         exit(0);

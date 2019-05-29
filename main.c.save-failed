@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main()
+{
+
+
+for(int iteration_1=0 ; iteration_1 <5; iteration_1++ )
+{
+ for(int iteration_2=0 ; iteration_2 <5; iteration_2++ )
+{
+ printf("*");
+
+}
+
+}
+ return 0;
+}

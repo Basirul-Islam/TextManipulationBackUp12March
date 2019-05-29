@@ -115,6 +115,18 @@
                   <ColorAdjust brightness="-0.04" contrast="1.0" hue="-0.06" saturation="0.04" />
                </effect>
             </ImageView>
+            <Button fx:id="MakeLOOPButton" layoutX="49.0" layoutY="340.0" mnemonicParsing="false" onAction="#LoopMaker" prefHeight="36.0" prefWidth="378.0" text="Make repeated statement" />
+            <Button fx:id="ExitFromLoop" layoutX="202.0" layoutY="396.0" mnemonicParsing="false" onAction="#exitButtonAction" text="Exit from loop" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="342.0" layoutY="225.0" prefHeight="216.0" prefWidth="474.0">
+         <children>
+            <AnchorPane fx:id="AchorpaneForIeterationPopUp" prefHeight="216.0" prefWidth="474.0" style="-fx-background-color: WHITE;">
+               <children>
+                  <TextField fx:id="NoOfIteration" layoutX="63.0" layoutY="83.0" prefHeight="36.0" prefWidth="362.0" promptText="How many time you iterate it" />
+                  <Button fx:id="OK" layoutX="229.0" layoutY="154.0" mnemonicParsing="false" onAction="#getIterationNo" text="ok" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
